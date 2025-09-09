@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Seshu Kumar Portfolio</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&display=swap');
+
+        :root {
+            --primary-color: #a855f7;
+            --secondary-color: #6366f1;
+            --background-dark: #0f0c29;
+            --background-medium: #302b63;
+            --background-light: #24243e;
+            --text-color: #fff;
+            --sub-text-color: #a0a0a0;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, var(--background-dark), var(--background-medium), var(--background-light));
+            color: var(--text-color);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(0, 0, 0, 0.7);
+            padding: 15px 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 1000;
+        }
+
+        header h1 {
+            font-size: 20px;
+            color: var(--text-color);
+        }
+
+        header h1 span {
+            color: var(--primary-color);
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        nav ul li a {
+            color: var(--text-color);
+            text-decoration: none;
+            font-weight: 500;
+            transition: 0.3s;
+        }
+
+        nav ul li a:hover {
+            color: var(--primary-color);
+        }
+
+        nav ul li:not(:last-child)::after {
+            content: '';
+            width: 1px;
+            height: 15px;
+            background-color: var(--sub-text-color);
+            margin-left: 20px;
+        }
+
+        section {
+            padding: 80px 20px;
+            max-width: 1100px;
+            margin: auto;
+        }
+
+        h2 {
+            font-size: 28px;
+            margin-bottom: 20px;
+            text-align: center;
+            color: var(--text-color);
+        }
+
+        .hero {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: center;
+            min-height: 100vh;
+            padding-top: 120px;
+            padding-bottom: 20px;
+        }
+
+        .hero-text {
+            flex: 1;
+            min-width: 280px;
+            margin-right: 40px;
+        }
+
+        .hero-text h2 {
+            font-size: 20px;
+            color: var(--sub-text-color);
+            text-align: left;
+        }
+        
+        .hero-text .job-title {
+            font-size: 24px;
+            color: var(--primary-color);
+            font-weight: 500;
+            margin-bottom: 20px;
+        }
+
+        .hero-text h1 {
+            font-size: 45px;
+            margin: 10px 0;
+            font-weight: 700;
+        }
+
+        .hero-text h1 span {
+            color: var(--primary-color);
+        }
+
+        .hero-text p {
+            max-width: 500px;
+            margin-bottom: 20px;
+            font-size: 16px;
+            color: #ddd;
+        }
+
+        .social-links {
+            margin-top: 20px;
+            margin-bottom: 20px;
+        }
+
+        .social-links a {
+            color: var(--text-color);
+            text-decoration: none;
+            margin-right: 20px;
+            font-size: 28px;
+            transition: color 0.3s;
+        }
+
+        .social-links a:hover {
+            color: var(--primary-color);
+        }
+
+        .btn {
+            display: inline-block;
+            margin-top: 10px;
+            padding: 12px 25px;
+            background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
+            border-radius: 25px;
+            color: var(--text-color);
+            text-decoration: none;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        .btn:hover {
+            opacity: 0.85;
+        }
+
+        .hero-img {
+            flex: 1;
+            text-align: center;
+        }
+
+        .hero-img img {
+            width: 350px;
+            height: 350px;
+            border-radius: 50%;
+            border: 5px solid var(--primary-color);
+            box-shadow: 0 0 20px rgba(168, 85, 247, 0.6);
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .card {
+            background: rgba(255, 255, 255, 0.08);
+            padding: 20px;
+            border-radius: 12px;
+            text-align: center;
+            transition: 0.3s;
+        }
+
+        .card:hover {
+            background: rgba(255, 255, 255, 0.15);
+            transform: translateY(-5px);
+        }
+
+        .card h3 {
+            margin-bottom: 10px;
+            color: var(--primary-color);
+        }
+
+        .edu-container {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .edu-card {
+            border: 2px solid var(--primary-color);
+            padding: 15px;
+            border-radius: 10px;
+            background: rgba(255, 255, 255, 0.05);
+        }
+
+        .edu-card h3 {
+            color: var(--primary-color);
+            margin-bottom: 8px;
+        }
+
+        /* Responsive */
+        @media (max-width: 900px) {
+            .hero {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .hero-text {
+                margin-right: 0;
+                margin-bottom: 30px;
+                text-align: center;
+            }
+            
+            .hero-text h2, .hero-text .job-title {
+                text-align: center;
+            }
+
+            .hero-img img {
+                width: 250px;
+                height: 250px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>&lt;<span>Seshu</span>/Kumar&gt;</h1>
+        <nav>
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#coding">Coding</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#education">Education</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="hero" id="home">
+        <div class="hero-text">
+            <h2>Hi, I am</h2>
+            <h1>Seshu <span>Kumar</span></h1>
+            <p class="job-title">A CSE(AI) Student</p>
+            <p>A B.tech in CSE(AI) student passionate about Web Development, Data Structures, and Artificial Intelligence. Skilled in MERN stack, TailwindCSS, and exploring AI fields like ML, DL, and NLP.</p>
+            <div class="social-links">
+                <a href="https://www.linkedin.com/in/seshu-kumar-kakula-93251327a/" target="_blank">
+                    <img src="https://img.icons8.com/color/48/000000/linkedin.png" alt="LinkedIn" width="30" height="30">
+                </a>
+                <a href="https://github.com/seshu8099/" target="_blank">
+                    <img src="https://img.icons8.com/fluency/48/000000/github.png" alt="GitHub" width="30" height="30">
+                </a>
+            </div>
+            <a href="https://drive.google.com/file/d/1CxfeY5nCyIWlCcGUC3nwRNB6SajbXkT9/view?usp=sharing" class="btn">Download CV</a>
+        </div>
+        <div class="hero-img">
+            <img src="seshu photo.jpg" alt="Profile Photo">
+        </div>
+    </section>
+
+    <section id="skills">
+        <h2>Skills</h2>
+        <div class="grid">
+            <div class="card">
+                <h3>Fundamentals</h3>
+                <p>Java, Data Structures, OOPs, SQL</p>
+            </div>
+            <div class="card">
+                <h3>Web Development</h3>
+                <p>MERN Stack, TailwindCSS, HTML, CSS, JavaScript, Socket.io</p>
+                <p><b>Level:</b> Intermediate</p>
+            </div>
+            <div class="card">
+                <h3>Artificial Intelligence</h3>
+                <p>Machine Learning, Deep Learning, Natural Language prcessing</p>
+                
+                <!-- <p> </p> -->
+                <p><b>Level:</b> Basics</p>
+            </div>
+        </div>
+    </section>
+    
+    <section id="coding">
+        <h2>Coding Profiles</h2>
+        <div class="grid">
+            <div class="card">
+                <h3>LeetCode</h3>
+                <p>350+ problems | Rating: 1550+</p>
+                <a href="https://leetcode.com/seshu4878/" target="_blank" class="btn">Visit</a>
+            </div>
+            <div class="card">
+                <h3>CodeChef</h3>
+                <p>30+ contests | 2★ | 1450+</p>
+                <a href="https://www.codechef.com/users/seshu4878" target="_blank" class="btn">Visit</a>
+            </div>
+            <div class="card">
+                <h3>Codeforces</h3>
+                <p>20+ contests | Pupil | 1200+</p>
+                <a href="https://codeforces.com/profile/seshu4878" target="_blank" class="btn">Visit</a>
+            </div>
+            <div class="card">
+                <h3>GitHub</h3>
+                <p>10+ repositories | Open-source</p>
+                <a href="https://github.com/seshu8099" target="_blank" class="btn">Visit</a>
+            </div>
+            <div class="card">
+                <h3>GFG</h3>
+                <p>200+ problems solved</p>
+                <a href="https://www.geeksforgeeks.org/user/20211a1256/" target="_blank" class="btn">Visit</a>
+            </div>
+        </div>
+    </section>
+
+    <section id="projects">
+        <h2>Projects</h2>
+        <div class="grid">
+            <div class="card">
+                <h3>Chatting App </h3>
+                <p>MERN, Socket.io, TailwindCSS,React</p>
+                <a href="https://github.com/seshu8099/chatapp" target="_blank" class="btn">View</a>
+            </div>
+            <div class="card">
+                <h3>Password Manager</h3>
+                <p>MERN, TailwindCSS,React</p>
+                <a href="https://github.com/seshu8099/passwordManager" target="_blank" class="btn">View</a>
+            </div>
+            <div class="card">
+                <h3>Spotify Clone</h3>
+                <p>HTML, CSS, JavaScript</p>
+                <a href="#" class="btn">View</a>
+            </div>
+            <div class="card">
+                <h3>Netflix Clone</h3>
+                <p>HTML, CSS</p>
+                <a href="#" class="btn">View</a>
+            </div>
+        </div>
+    </section>
+
+    <section id="education">
+        <h2>Education</h2>
+        <div class="edu-container">
+            <div class="edu-card">
+                <h3>B.Tech in CSE (AI)</h3>
+                <p>Vidya Jyothi Institute of Technology, Hyderabad (2022-2026)</p>
+                <p>CGPA: 8.14</p>
+            </div>
+            <div class="edu-card">
+                <h3>Class XII</h3>
+                <p>Sri Chaitanya Junior College, Hyderabad (2020-2022)</p>
+                <p>Aggregate: 90.7%</p>
+            </div>
+            <div class="edu-card">
+                <h3>Class X</h3>
+                <p>Sri Chaitanya School, Hyderabad (2019-2020)</p>
+                <p>CGPA: 9.8</p>
+            </div>
+        </div>
+    </section>
+
+</body>
+</html>
